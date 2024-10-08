@@ -24,6 +24,7 @@ public class ChatManager {
             super(protocolId, new ChatProtocol(onMessageFunc));
         }
     }
+    @SuppressWarnings("NullableProblems")
     private static class ChatProtocol extends ProtocolHandler<ChatController> {
         private final BiFunction<PeerId, String, Void> onMessageFunc;
         public ChatProtocol(BiFunction<PeerId, String, Void> onMessageFunc) {
@@ -48,6 +49,7 @@ public class ChatManager {
         }
     }
 
+    @SuppressWarnings("NullableProblems")
     private static class ChatMessageProtocol implements ProtocolMessageHandler<ByteBuf>, ChatController {
         private final BiFunction<PeerId, String, Void> onMessageFunc;
         private final CompletableFuture<Void> connection;
@@ -57,7 +59,7 @@ public class ChatManager {
             this.connection = connection;
         }
         @Override
-        public void onActivated(Stream stream) {
+        public void onActivated(Stream stream)  {
             this.stream = stream;
             connection.complete(null);
         }
