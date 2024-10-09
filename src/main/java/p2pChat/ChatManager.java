@@ -13,14 +13,14 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.BiFunction;
 
 public class ChatManager {
-    private interface ChatController {
+    public interface ChatController {
         void send(String msg);
     }
 
-    private final String protocolId = "/p2pChat/chatProtocol/1.0.0";
+    private static final String protocolId = "/p2pChat/chatProtocol/1.0.0";
 
-    public class Chat extends StrictProtocolBinding<ChatController> {
-        Chat(BiFunction<PeerId, String,Void> onMessageFunc) {
+    public static class Chat extends StrictProtocolBinding<ChatController> {
+        Chat(BiFunction<PeerId, String, Void> onMessageFunc) {
             super(protocolId, new ChatProtocol(onMessageFunc));
         }
     }
