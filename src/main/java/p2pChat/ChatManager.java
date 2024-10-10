@@ -40,12 +40,12 @@ public class ChatManager {
         }
         
         protected CompletableFuture<ChatController> onStartInitiator(Stream stream) {
-            return super.onStartInitiator(stream);
+            return onStart(stream);
         }
 
         @Override
         protected CompletableFuture<ChatController> onStartResponder(Stream stream) {
-            return super.onStartResponder(stream);
+            return onStart(stream);
         }
     }
 
