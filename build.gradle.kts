@@ -19,6 +19,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("io.libp2p:jvm-libp2p:1.2.0-RELEASE")
     implementation("org.slf4j:slf4j-nop:2.0.7")
+    implementation("com.github.Peergos:nabu:v0.8.0")
 }
 
 tasks.test {
